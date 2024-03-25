@@ -6,6 +6,8 @@ import ProductListPanel from '../ProductListPanel/ProductListPanel';
 import TotalPanel from '../TotalPanel/TotalPanel';
 import CategoryPanel from '../CategoryPanel/CategoryPanel';
 
+import './dashboard.css';
+
 const Dashboard = () => {
   return (
     <div>
