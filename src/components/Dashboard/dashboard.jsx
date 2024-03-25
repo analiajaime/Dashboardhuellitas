@@ -1,17 +1,17 @@
 import React from 'react';
-import ProductsComponent from '../TotalPanel/TotalPanel';
+
+import Footer from '../Footer/footer';
 import DetailPanel from '../DetailPanel/DetailPanel';
-import CategoryPanel from '../CategoryPanel/CategoryPanel';
 import ProductListPanel from '../ProductListPanel/ProductListPanel';
 
 const Dashboard = () => {
   return (
     <div>
-      <h1>SWAPI Dashboard</h1>
-      <ProductsComponent />
-      <DetailPanel />
-      <CategoryPanel />
+      <h1>Dashboard</h1>
       <ProductListPanel />
+      <DetailPanel />
+      <Footer />
+      
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts } from '../../services/config';
 
-const ProductsComponent = () => {
+const TotalPanel = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,6 +21,6 @@ const ProductsComponent = () => {
     </div>
   );
 }
-export default ProductsComponent;
+export default TotalPanel;
 
 // Path: src/components/ProductsComponent/ProductsComponent.jsx
