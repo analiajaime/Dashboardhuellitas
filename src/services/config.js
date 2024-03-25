@@ -1,12 +1,14 @@
-import axios from 'axios';
-
-const BASE_URL = 'https://swapi.dev/api';
-
-export const fetchData = async (endpoint) => {
+// services/config.js
+export const getProducts = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/${endpoint}`);
-    return response.data;
+    const response = await fetch('https://fakestoreapi.com/products');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const products = await response.json();
+    return products;
   } catch (error) {
-    console.error("Error fetching data: ", error);
+    console.error("Error fetching products: ", error);
+    throw error;
   }
 };

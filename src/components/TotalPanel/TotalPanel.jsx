@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { fetchData } from '../../services/config';
+import { getProducts } from '../../services/config';
 
-const TotalPanel = () => {
-  const [totals, setTotals] = useState({ films: 0, people: 0, species: 0 });
+const ProductsComponent = () => {
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const loadTotals = async () => {
-      const films = await fetchData('films');
-      const people = await fetchData('people');
-      const species = await fetchData('species');
-      setTotals({ films: films.count, people: people.count, species: species.count });
-    };
-
-    loadTotals();
+    getProducts()
+      .then((products) => setProducts(products))
+      .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
   return (
     <div>
-      <p>Total Films: {totals.films}</p>
-      <p>Total People: {totals.people}</p>
-      <p>Total Species: {totals.species}</p>
+      <h2>Products</h2>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>{product.title}</li>
+        ))}
+      </ul>
     </div>
   );
-};
+}
+export default ProductsComponent;
 
-export default TotalPanel;
+// Path: src/components/ProductsComponent/ProductsComponent.jsx
